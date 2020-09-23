@@ -1,0 +1,44 @@
+{
+  "name": "fec-overview-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Go-Tim/overview-2.git"
+  },
+  "author": "Jason",
+  "license": "ISC",
+  "bugs": {
+    "url": "git+https://github.com/Go-Tim/overview-2/issues"
+  },
+  "homepage": "git+https://github.com/Go-Tim/overview-2#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dev": "0.0.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}
