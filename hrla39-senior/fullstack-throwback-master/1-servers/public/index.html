@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dog API</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Dog API Guide</h1>
+  <div class="section-header">
+  <h3>Summary of Routes</h3>
+  <div>
+  <div class="section-body">
+  <p>Note: URIs relative to localhost:3000/api</p>
+  <table>
+    <thead>
+      <th>Action</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a class="api" href="#get-all-dogs"><code>list</code></a>
+        </td>
+        <td>
+          <code>GET /dogs</code>
+        </td>
+        <td>
+          Get a list of all the current dogs with name, breed, and id.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a class="api" href="#get-one-dog"><code>find</code></a>
+        </td>
+        <td>
+          <code>GET /dogs/:id</code>
+        </td>
+        <td>
+          Find the dog associated with that id.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a class="api" href="#add-one-dog"><code>insert</code></a>
+        </td>
+        <td>
+          <code>POST /dogs</code>
+        </td>
+        <td>
+          Add a new dog.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="section-header">
+  <h3 id="get-all-dogs">Get a list of all the dogs</h3>
+  </div>
+  <div class="section-body">
+  <h4>Usage</h4> 
+  
+  This sample usage returns an array of dogs, sorted by name, and limited to 3, formatted as JSON.
+
+  <pre><code>
+  $.ajax({
+    method: 'GET',
+    data: { max: 3, orderBy: 'name' }
+    url: '/api/dogs',
+    dataType: 'json'
+  })
+  </code></pre>
+
+  <h4>HTTP Request</h4>
+
+  <code>
+  GET http://localhost:3000/api/dogs
+  </code>
+
+  <h4>Parameters</h4>
+  The following table lists the parameters that this query supports. All of the parameters listed below are query parameters. 
+
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Parameter
+        </th>
+        <th>
+          Allowed values
+        </th>
+        <th>
+          Required?
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="api" ><code>max</code></td>
+        <td>any integer</td>
+        <td>NO</td>
+      </tr>
+      <tr>
+        <td class="api" ><code>orderBy</code></td>
+        <td><code>name, breed</code></td>
+        <td>NO</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+
+  <div class="section-header">
+  <h3 id="get-one-dog">Get a specific dog</h3>
+  </div>
+  <div class="section-body">
+  <h4>Usage</h4> 
+  
+  This sample usage returns the dog associated with id SyMsy7XHNb, formatted as JSON. If no dog exists with that id, will respond with 404.
+
+  <pre><code>
+  $.ajax({
+    method: 'GET',
+    url: '/api/dogs/SyMsy7XHNb',
+    dataType: 'json',
+  })
+  </code></pre>
+
+  <h4>HTTP Request</h4>
+
+  <code>
+  GET http://localhost:3000/api/dogs/:id
+  </code>
+
+  <h4>Parameters</h4>
+  There are no parameters supported for this endpoint.
+  </div>
+ 
+  <div class="section-header">
+  <h3 id="add-one-dog">Add a new dog</h3>
+  </div>
+  <div class="section-body">
+  <h4>Usage</h4> 
+  
+  This sample usage creates a dog with name Noodle and breed Poodle. Incorrectly formatted request bodies will receive a response with status code 400.
+
+  <pre><code>
+  $.ajax({
+    method: 'POST',
+    url: '/api/dogs',
+    data: JSON.stringify({ name: 'Noodle', breed: 'Poodle'}),
+    contentType: 'application/json',
+  })
+  </code></pre>
+
+  <h4>HTTP Request</h4>
+
+  <code>
+  POST http://localhost:3000/api/dogs
+  </code>
+
+  <h4>Parameters</h4>
+  There are no parameters supported for this endpoint.
+
+  </div>
+</body>
+</html>
