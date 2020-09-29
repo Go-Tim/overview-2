@@ -2,7 +2,7 @@ const router = require('express').Router();
 const controllers = require('./controllers.js');
 
 router
-  .route('/site/:id')
+  .route('/sites/:id')
   .get(controllers.getSite);
 
 router

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "build": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed": "node database/seedActivities.js",
     "seed2": "node database/seedAttractions.js",
