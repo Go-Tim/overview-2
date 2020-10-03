@@ -6,16 +6,12 @@ export default class Terrain extends React.Component {
     super(props);
     this.state = {
       terrain: [],
-      campsiteName: '',
-      campsiteState: '',
     };
     this.getTerrain = this.getTerrain.bind(this);
-    this.getSite = this.getSite.bind(this);
   }
 
   componentDidMount() {
-    this.getTerrain(window.location.pathname);
-    this.getSite(window.location.pathname);
+    this.getTerrain(this.props.path);
   }
 
   getTerrain(id) {
@@ -26,34 +22,21 @@ export default class Terrain extends React.Component {
       .catch((err) => console.error(err));
   }
 
-  getSite(id) {
-    Axios.get(`/api/sites${id}`)
-      .then((results) => {
-        this.setState({
-          campsiteName: results.data[0].siteName,
-          campsiteState: results.data[0].siteState,
-        });
-      })
-      .catch((err) => console.error(err));
-  }
-
   render() {
     const terrainArr = this.state.terrain.map((terrain, index) => (
-      <div key={index}>
-        <div>
-          <span className="icon">
-            <img src={terrain.image} alt={terrain.name}></img>
-          </span>
+      <div className="unit" key={index}>
+        <div className="borderbox">
+          <img className="bigIcon" src={terrain.image} alt={terrain.name} />
         </div>
-        <span className="name">{terrain.name}</span>
+        <span className="bigIconDesc">{terrain.name}</span>
       </div>
     ));
 
     return (
-      <section>
-        <h3>Terrain</h3>
-        <p>Natural features you'll find at {this.state.campsiteName} in {this.state.campsiteState}</p>
-        <div>
+      <section className="sections">
+        <h3 className="header">Terrain</h3>
+        <p className="headerDesc">Natural features you'll find at {this.props.campsiteName} in {this.props.campsiteState}</p>
+        <div className="flex-box">
           {terrainArr}
         </div>
       </section>

@@ -1,65 +1,73 @@
 import React from 'react';
 import Axios from 'axios';
+import ServicesModal from './ServicesModal.jsx';
 
 export default class Services extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       services: [],
-      campsiteName: '',
+      present: '',
+      show: false,
+      modal: [],
     };
     this.getServices = this.getServices.bind(this);
-    this.getSite = this.getSite.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
-    this.getServices(window.location.pathname);
-    this.getSite(window.location.pathname);
+    this.getServices(this.props.path);
   }
 
   getServices(id) {
     Axios.get(`/api/services${id}`)
       .then((results) => this.setState({
         services: results.data,
+        present: results.data[0].name,
       }))
       .catch((err) => console.error(err));
   }
 
-  getSite(id) {
-    Axios.get(`/api/sites${id}`)
-      .then((results) => {
-        this.setState({
-          campsiteName: results.data[0].siteName,
-        });
-      })
-      .catch((err) => console.error(err));
+  showModal(service) {
+    this.setState({
+      show: true,
+      modal: service,
+    });
+  }
+
+  hideModal() {
+    this.setState({
+      show: false,
+    });
   }
 
   render() {
-    if (this.state.services.length > 0) {
+    if (this.state.present !== 'null') {
       const servicesArr = this.state.services.map((service, index) => (
-        <div key={index} className="innerbox">
-          <div className="innerinnerbox">
-            <div className="top">
-              <span className="icon">
-                <img src={service.image} alt="service image" />
-              </span>
-              <span className="price">
-                {service.price}
-              </span>
-            </div>
-            <h2>{service.name}</h2>
-            <div>
-              <p>{service.description}</p>
-            </div>
+        <div className="services" key={index}>
+          <div className="servicesTop">
+            <img className="serviceIcon" src={service.image} alt={service.name} />
+            <span className="priceTag">
+              {service.price === 'free' ? null : '$'}{service.price}
+            </span>
+          </div>
+          <h2 className="serviceHeader">{service.name}</h2>
+          <div>
+            <p className="serviceDesc">{service.description.substring(0, 77)}...<a className="read-more" onClick={() => this.showModal(service)}>Read More</a></p>
           </div>
         </div>
       ));
       return (
-        <section>
-          <h3>You know what would make this trip even better?</h3>
-          <p>Take advantage of these offers available to add to your trip to {this.state.campsiteName}</p>
-          <div className="outerbox">
+        <section className="sections">
+          <ServicesModal
+            show={this.state.show}
+            handleClose={this.hideModal}
+            service={this.state.modal}
+          />
+          <h3 className="header">You know what would make this trip even better?</h3>
+          <p className="headerDesc">Take advantage of these offers available to add to your trip to {this.props.campsiteName}</p>
+          <div className="flex-box">
             {servicesArr}
           </div>
         </section>

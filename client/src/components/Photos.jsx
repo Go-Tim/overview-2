@@ -1,20 +1,21 @@
 import React from 'react';
 import Axios from 'axios';
+import PhotosModal from './PhotosModal.jsx';
 
 export default class Photos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       photos: [],
-      campsite: [],
+      show: false,
     };
     this.getPhotos = this.getPhotos.bind(this);
-    this.getSite = this.getSite.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
-    this.getPhotos(window.location.pathname);
-    this.getSite(window.location.pathname);
+    this.getPhotos(this.props.path);
   }
 
   getPhotos(id) {
@@ -25,54 +26,60 @@ export default class Photos extends React.Component {
       .catch((err) => console.error(err));
   }
 
-  getSite(id) {
-    Axios.get(`/api/sites${id}`)
-      .then((results) => {
-        this.setState({
-          campsite: results.data,
-        });
-      })
-      .catch((err) => console.error(err));
+  showModal() {
+    this.setState({
+      show: true,
+    });
+  }
+
+  hideModal() {
+    this.setState({
+      show: false,
+    });
   }
 
   render() {
     const photosArr = this.state.photos.map((photo, index) => (
-      <div key={index}>
-        <div className="img">
-          <div className="author">
-            <img src={photo.userImage} alt={photo.userName}></img>
-            <span>{photo.userName}</span>
-          </div>
+      <div className="photo" key={index} onClick={this.showModal}>
+        <img className="campsitePhotos" src={photo.photo} alt="campsite" />
+        <div className="author">
+          <img src={photo.userImage} alt={photo.userName} className="userImg"></img>
+          <span>{photo.userName}</span>
         </div>
       </div>
     ));
 
+    const ninePhotos = [];
+    for (let i = 0; i < 9; i++) {
+      ninePhotos.push(photosArr[i]);
+    }
+
     return (
-      <section>
-        <h3>The vibe at </h3>
-        <div className="container">
-          <div>
-            <div className="info">
-              <div>
-                <big></big>
-                <span></span>
-              </div>
-            </div>
-            <div className="info">
-              <div>
-                <big></big>
-                <span></span>
-              </div>
-            </div>
-            <div className="info">
-              <div>
-                <big></big>
-                <span></span>
-              </div>
-            </div>
-            {photosArr}
-            </div>
+      <section className="sections">
+        <PhotosModal
+          show={this.state.show}
+          handleClose={this.hideModal}
+          campsiteName={this.props.campsiteName}
+          campsiteArea={this.props.campsiteArea}
+          photos={this.state.photos}
+        />
+        <h3 className="header">The vibe at {this.props.campsiteName}</h3>
+
+        <div className="grid-container">
+          <div className="details">
+            <big className="info">{this.props.campsiteElevation} ft</big>
+            <span className="infoDesc">Listing's elevation</span>
           </div>
+          <div className="details">
+            <big className="info">{this.props.campsiteTemperature}&deg;F</big>
+            <span className="infoDesc">{this.props.campsiteWeather} today</span>
+          </div>
+          <div className="details">
+            <big className="info">{this.props.campsiteDistance}hrs</big>
+            <span className="infoDesc">Away, as the crow files</span>
+          </div>
+          {ninePhotos}
+        </div>
       </section>
     );
   }

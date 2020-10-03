@@ -1,59 +1,53 @@
 import React from 'react';
 import Axios from 'axios';
 
-export default class App extends React.Component {
+export default class Attractions extends React.Component {
   constructor() {
     super();
     this.state = {
       attractions: [],
-      campsiteArea: '',
     };
     this.getAttractions = this.getAttractions.bind(this);
-    this.getSite = this.getSite.bind(this);
   }
 
   componentDidMount() {
-    this.getAttractions(window.location.pathname);
-    this.getSite(window.location.pathname);
+    this.getAttractions(this.props.path);
   }
 
   getAttractions(id) {
-    Axios.get(`/api/photos${id}`)
+    Axios.get(`/api/attractions${id}`)
       .then((results) => this.setState({
         attractions: results.data,
       }))
       .catch((err) => console.error(err));
   }
 
-  getSite(id) {
-    Axios.get(`/api/sites${id}`)
-      .then((results) => {
-        this.setState({
-          campsiteArea: results.data[0].siteArea,
-        });
-      })
-      .catch((err) => console.error(err));
-  }
-
   render() {
-    const attractionsArr = this.state.attractions.map((attraction, index) => (
-      <div key={index}>
-        <div>
-          <div className="image"></div>
-          <div className="name">{attraction.name}</div>
-          <div className="distance">{attraction.distance}</div>
+    const attractionsArr = this.state.attractions.map((attraction, index) => {
+      if (attraction.name.length > 23) {
+        return (
+          <div className="attractions" key={index}>
+            <img src={attraction.image} alt={attraction.name} className="attractionImg" />
+            <div className="attractionName">{attraction.name.substring(0, 23)}...</div>
+            <div className="attractionDistance">{attraction.distance} miles away <a className="explore">Explore</a></div>
+          </div>
+        );
+      }
+      return (
+        <div className="attractions" key={index}>
+          <img src={attraction.image} alt={attraction.name} className="attractionImg" />
+          <div className="attractionName">{attraction.name}</div>
+          <div className="attractionDistance">{attraction.distance} miles away <a className="explore">Explore</a></div>
         </div>
-      </div>
-    ));
+      );
+    });
 
     return (
-      <section>
-        <div>
-          <h3>The vibe at {this.state.campsiteArea}</h3>
-          <div>
-            <div>
-              { attractionsArr }
-            </div>
+      <section className="sections">
+        <h3 className="header">Places to see near {this.props.campsiteArea}</h3>
+        <div className="scrollmenu-container">
+          <div className="scrollmenu">
+            {attractionsArr}
           </div>
         </div>
       </section>

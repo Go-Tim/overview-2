@@ -24,20 +24,18 @@ export default class Activities extends React.Component {
 
   render() {
     const activitiesArr = this.state.activities.map((activity, index) => (
-      <div key={index}>
-        <div>
-          <span className="bigIcon">
-            <img src={activity.image} alt={activity.name}></img>
-          </span>
+      <div className="unit" key={index}>
+        <div className="borderbox">
+          <img className="bigIcon" src={activity.image} alt={activity.name} />
         </div>
-        <span className="bigIconName">{activity.name}</span>
+        <span className="bigIconDesc">{activity.name}</span>
       </div>
     ));
     return (
-      <section>
-        <h3>Activities</h3>
-        <p>Offered on the Host's property or nearby.</p>
-        <div>
+      <section className="sections">
+        <h3 className="header">Activities</h3>
+        <p className="headerDesc">Offered on the Host's property or nearby.</p>
+        <div className="flex-box">
           {activitiesArr}
         </div>
       </section>
