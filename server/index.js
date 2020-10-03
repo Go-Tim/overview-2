@@ -12,7 +12,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use('/:id', express.static(path.join(__dirname, '../client/dist')));
 app.use('/api', router);
 
 app.listen(port, () => console.log(`currently listening on localhost:${port}`));
