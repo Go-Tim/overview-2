@@ -17,13 +17,15 @@ const containerVariant = {
 const ServicesModal = ({ show, handleClose, service }) => (
   <AnimatePresence exitBeforeEnter>
     {show && (
-      <motion.div
-        className="overlay"
-        initial="initial"
-        animate="isOpen"
-        exit="exit"
-        variants={modalVariant}
-      >
+      <motion.div>
+        <motion.div
+          className="overlay"
+          initial="initial"
+          animate="isOpen"
+          exit="exit"
+          variants={modalVariant}
+          onClick={handleClose}
+        />
         <motion.div
           className="modal-container"
           initial="initial"

@@ -8,13 +8,15 @@ const createPhoto = (id) => {
 
   photo.photo = `https://fec-overview-2.s3-us-west-1.amazonaws.com/campsitephotos/camp${faker.random.number(346)}.jpg`;
 
-  photo.userName = faker.name.findName();
+  photo.userName = faker.name.firstName() + ' ' + faker.name.lastName()[0] + '.';
 
   photo.userImage = 'https://fec-overview-2.s3-us-west-1.amazonaws.com/tim/Tim.png';
 
   photo.date = faker.date.past();
 
   photo.likes = faker.random.number(10);
+
+  photo.caption = faker.lorem.sentence();
 
   return photo;
 };
@@ -52,7 +54,7 @@ const createPhotos = () => {
 const insertData = () => {
   let allData = createPhotos();
   allData.forEach((item) => {
-    db.query(`INSERT INTO photos (id, photo, userName, userImage, date, likes) VALUES (${item.id}, "${item.photo}", "${item.userName}", "${item.userImage}", "${item.date}", "${item.likes}")`, (err, result) => {
+    db.query(`INSERT INTO photos (id, photo, userName, userImage, date, likes, caption) VALUES (${item.id}, "${item.photo}", "${item.userName}", "${item.userImage}", "${item.date}", "${item.likes}", "${item.caption}")`, (err, result) => {
       if (err) {
         console.log('photo seed failed');
       } else {

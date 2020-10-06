@@ -41,7 +41,8 @@ CREATE TABLE photos (
   userName varchar(255) not null,
   userImage varchar(255) not null,
   date varchar(255) not null,
-  likes int not null
+  likes int not null,
+  caption varchar(255) not null
 );
 
 CREATE TABLE attractions (
