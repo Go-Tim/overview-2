@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import { FaCamera } from 'react-icons/fa';
 import PhotosModal from './PhotosModal.jsx';
 
 export default class Photos extends React.Component {
@@ -9,6 +10,7 @@ export default class Photos extends React.Component {
       photos: [],
       selectedPhoto: [],
       show: false,
+      index: '',
     };
     this.getPhotos = this.getPhotos.bind(this);
     this.showModal = this.showModal.bind(this);
@@ -27,10 +29,11 @@ export default class Photos extends React.Component {
       .catch((err) => console.error(err));
   }
 
-  showModal(photo) {
+  showModal(photo, index) {
     this.setState({
       show: true,
       selectedPhoto: photo,
+      index: index,
     });
   }
 
@@ -41,15 +44,28 @@ export default class Photos extends React.Component {
   }
 
   render() {
-    const photosArr = this.state.photos.map((photo, index) => (
-      <div className="photogrid" key={index} onClick={() => this.showModal(photo)}>
-        <img className="photogrid-photo" src={photo.photo} alt="campsite" />
-        <div className="photogrid-author">
-          <img className="photogrid-avatar" src={photo.userImage} alt={photo.userName} />
-          <span className="photogrid-name">{photo.userName}</span>
+    const photosArr = this.state.photos.map((photo, index) => {
+      if (index === 8) {
+        return (
+            <div className="photogrid" key={index}>
+              <div className="ninethPhoto" onClick={() => this.showModal(photo, index)}>
+                <big className="camera-icon"><FaCamera /></big>
+                <span className="camera-icon-desc">See all {this.state.photos.length} photos</span>
+              </div>
+              <img className="photogrid-photo" src={photo.photo} alt="campsite" />
+            </div>
+        );
+      }
+      return (
+        <div className="photogrid" key={index} onClick={() => this.showModal(photo, index)}>
+          <img className="photogrid-photo" src={photo.photo} alt="campsite" />
+          <div className="photogrid-author">
+            <img className="photogrid-avatar" src={photo.userImage} alt={photo.userName} />
+            <span className="photogrid-name">{photo.userName}</span>
+          </div>
         </div>
-      </div>
-    ));
+      );
+    });
 
     return (
       <section className="sections">
@@ -60,6 +76,7 @@ export default class Photos extends React.Component {
           photos={this.state.photos}
           campsiteName={this.props.campsiteName}
           campsiteArea={this.props.campsiteArea}
+          index={this.state.index}
         />
         <h3 className="header">The vibe at {this.props.campsiteName}</h3>
         <div className="grid-container">

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaRegFlag, FaPinterest, FaFacebook, FaTwitter, FaLink, FaRegThumbsUp, FaMapMarkerAlt } from 'react-icons/fa';
 import { RiCloseLine, RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Moment from 'react-moment';
 import 'moment-timezone';
 
@@ -11,10 +12,11 @@ const modalVariant = {
   exit: { opacity: 0 },
 };
 
-const PhotosModal = ({ show, handleClose, selectedPhoto, photos, campsiteArea, campsiteName }) => {
-  const [x, setX] = useState(0);
+const PhotosModal = ({ show, handleClose, selectedPhoto, photos, campsiteArea, campsiteName, index }) => {
+  const [x, setX] = useState((index * -100));
+
   const goLeft = () => {
-    x === 0 ? setX(-100 * (photos.length - 1)) : setX(x - 100);
+    x === 0 ? setX(-100 * (photos.length - 1)) : setX(x + 100);
   };
   const goRight = () => {
     x === -100 * (photos.length - 1) ? setX(0) : setX(x - 100);
@@ -53,7 +55,7 @@ const PhotosModal = ({ show, handleClose, selectedPhoto, photos, campsiteArea, c
             </div>
           </div>
         <img className="photos-modal-photo" src={photo.photo} alt="campsite photos" />
-        <p className="caption">Caption</p>
+        <p className="caption">{photo.caption}</p>
       </div>
     </div>
   ));
@@ -71,11 +73,11 @@ const PhotosModal = ({ show, handleClose, selectedPhoto, photos, campsiteArea, c
             onClick={handleClose}
           />
           <div className="photos-modal-top-left">
-            <div className="slideNumber">1 / 10</div>
+            <div className="slideNumber">{index + 1} / {photos.length}</div>
             <div className="report" ><FaRegFlag /> Report</div>
           </div>
-          <div className="photos-modal-top-right">
-            <RiCloseLine className="close" onClick={handleClose} />
+          <div className="photos-modal-top-right" onClick={handleClose}>
+            <RiCloseLine className="close" />
           </div>
           <motion.div
             className="photos-modal-container"

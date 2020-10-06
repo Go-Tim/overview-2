@@ -25,7 +25,7 @@ module.exports = {
   },
   getAttractions: (req, callback) => {
     const { id } = req.params;
-    const queryStr = `SELECT * FROM attractions WHERE id=${id}`;
+    const queryStr = `SELECT * FROM attractions WHERE id=${id} ORDER BY distance`;
     db.query(queryStr, (err, result) => {
       if (err) {
         callback(err);

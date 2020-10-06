@@ -1,6 +1,6 @@
 const db = require('./index.js');
 
-let name = ['Biking', 'Boating', 'Climbing', 'Fishing', 'Hiking', 'Paddling', 'SnowSports', 'Swimming', 'WildlifeWatching'];
+let name = ['Biking', 'Boating', 'Climbing', 'Fishing', 'Hiking', 'Paddling', 'Swimming'];
 
 const shuffle = (array) => {
   let currentIndex = array.length;
