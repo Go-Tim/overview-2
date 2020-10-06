@@ -7,6 +7,7 @@ export default class Photos extends React.Component {
     super(props);
     this.state = {
       photos: [],
+      selectedPhoto: [],
       show: false,
     };
     this.getPhotos = this.getPhotos.bind(this);
@@ -26,9 +27,10 @@ export default class Photos extends React.Component {
       .catch((err) => console.error(err));
   }
 
-  showModal() {
+  showModal(photo) {
     this.setState({
       show: true,
+      selectedPhoto: photo,
     });
   }
 
@@ -40,31 +42,26 @@ export default class Photos extends React.Component {
 
   render() {
     const photosArr = this.state.photos.map((photo, index) => (
-      <div className="photo" key={index} onClick={this.showModal}>
-        <img className="campsitePhotos" src={photo.photo} alt="campsite" />
-        <div className="author">
-          <img src={photo.userImage} alt={photo.userName} className="userImg"></img>
-          <span>{photo.userName}</span>
+      <div className="photogrid" key={index} onClick={() => this.showModal(photo)}>
+        <img className="photogrid-photo" src={photo.photo} alt="campsite" />
+        <div className="photogrid-author">
+          <img className="photogrid-avatar" src={photo.userImage} alt={photo.userName} />
+          <span className="photogrid-name">{photo.userName}</span>
         </div>
       </div>
     ));
-
-    const ninePhotos = [];
-    for (let i = 0; i < 9; i++) {
-      ninePhotos.push(photosArr[i]);
-    }
 
     return (
       <section className="sections">
         <PhotosModal
           show={this.state.show}
           handleClose={this.hideModal}
+          selectedPhoto={this.state.selectedPhoto}
+          photos={this.state.photos}
           campsiteName={this.props.campsiteName}
           campsiteArea={this.props.campsiteArea}
-          photos={this.state.photos}
         />
         <h3 className="header">The vibe at {this.props.campsiteName}</h3>
-
         <div className="grid-container">
           <div className="details">
             <big className="info">{this.props.campsiteElevation} ft</big>
@@ -78,7 +75,7 @@ export default class Photos extends React.Component {
             <big className="info">{this.props.campsiteDistance}hrs</big>
             <span className="infoDesc">Away, as the crow files</span>
           </div>
-          {ninePhotos}
+          {photosArr.slice(0, 9)}
         </div>
       </section>
     );

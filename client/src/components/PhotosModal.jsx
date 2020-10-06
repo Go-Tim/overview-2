@@ -1,53 +1,93 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { FaPinterest, FaFacebook, FaTwitter, FaLink, FaRegThumbsUp, FaMapMarkerAlt } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { FaRegFlag, FaPinterest, FaFacebook, FaTwitter, FaLink, FaRegThumbsUp, FaMapMarkerAlt } from 'react-icons/fa';
+import { RiCloseLine, RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import Moment from 'react-moment';
 import 'moment-timezone';
 
-export default function PhotosModal({ show, handleClose, photos, campsiteArea, campsiteName }) {
-  const showHideClassName = show ? "modal display-block" : "modal display-none";
+const modalVariant = {
+  initial: { opacity: 0 },
+  isOpen: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
-  if (!show) {
-    return null;
-  }
-  return ReactDOM.createPortal(
-    <div>
-      <div className={showHideClassName} onClick={handleClose} />
-      <div className="modal-main">
-        <div className="top">
-          <div className="top-top">
-            <div className="userInfo">
-                <img className="photo-grid-img" src={photos[0].userImage} alt="avatar" />
-                <div className="photo-user">
-                  <h2 className="photo-grid-name">{photos[0].userName}</h2>
-                  <div className="photo-grid-date">Posted on <Moment format="MMMM Do, YYYY">{photos[0].date}</Moment></div>
-                </div>
-            </div>
-            <div>
-              <button className="helpful-button">
-                <div className="helpful-context">
-                  <FaRegThumbsUp className="thumbs-up" />
-                  <div>Helpful</div>
-                </div>
-                <div>{photos[0].likes}</div>
-              </button>
+const PhotosModal = ({ show, handleClose, selectedPhoto, photos, campsiteArea, campsiteName }) => {
+  const [x, setX] = useState(0);
+  const goLeft = () => {
+    x === 0 ? setX(-100 * (photos.length - 1)) : setX(x - 100);
+  };
+  const goRight = () => {
+    x === -100 * (photos.length - 1) ? setX(0) : setX(x - 100);
+  };
+
+  const carousel = photos.map((photo, index) => (
+    <div className="carousel" key={index} style={{ transform: `translateX(${x}%)` }}>
+      <div className="photos-modal-top-center">
+        <div className="photos-modal-top-upper">
+          <div className="photos-modal-userInfo">
+            <img className="photos-modal-avatar" src={photo.userImage} alt="avatar" />
+            <div className="photos-modal-user">
+              <h2 className="photos-modal-name">{photo.userName}</h2>
+              <div className="photos-modal-date">Posted on <Moment format="MMMM Do, YYYY">{photo.date}</Moment></div>
             </div>
           </div>
-          <div className="top-bottom">
-            <div>
-              <p className="photo-grid-location"><FaMapMarkerAlt className="social-media"/>{campsiteName}, {campsiteArea}</p>
-            </div>
-            <div className="social-media-holder">
-              <FaPinterest className="social-media" />
-              <FaFacebook className="social-media" />
-              <FaTwitter className="social-media" />
-              <FaLink className="social-media" />
-            </div>
+          <div>
+            <button className="helpful-button" type="button">
+              <div className="helpful-context">
+                <FaRegThumbsUp className="thumbs-up" />
+                <div>Helpful</div>
+              </div>
+              <div>{photo.likes}</div>
+            </button>
           </div>
         </div>
-        <img className="photo-grid-photo" src={photos[0].photo} alt="campsite photos" />
+        <div className="photos-modal-top-lower">
+            <div>
+              <p className="photos-modal-location"><FaMapMarkerAlt className="social-media" />{campsiteName}, {campsiteArea}</p>
+            </div>
+            <div className="social-media-holder">
+              <div className="social-media"><FaPinterest /></div>
+              <div className="social-media"><FaFacebook /></div>
+              <div className="social-media"><FaTwitter /></div>
+              <div className="social-media"><FaLink /></div>
+            </div>
+          </div>
+        <img className="photos-modal-photo" src={photo.photo} alt="campsite photos" />
+        <p className="caption">Caption</p>
       </div>
-    </div>,
-    document.getElementById('portal'),
+    </div>
+  ));
+
+  return (
+    <AnimatePresence exitBeforeEnter>
+      {show && (
+        <motion.div>
+          <motion.div
+            className="photos-overlay"
+            initial="initial"
+            animate="isOpen"
+            exit="exit"
+            variants={modalVariant}
+            onClick={handleClose}
+          />
+          <div className="photos-modal-top-left">
+            <div className="slideNumber">1 / 10</div>
+            <div className="report" ><FaRegFlag /> Report</div>
+          </div>
+          <div className="photos-modal-top-right">
+            <RiCloseLine className="close" onClick={handleClose} />
+          </div>
+          <motion.div
+            className="photos-modal-container"
+          >
+            {carousel}
+          </motion.div>
+          <RiArrowLeftSLine className="goLeft" onClick={goLeft} />
+          <RiArrowRightSLine className="goRight" onClick={goRight} />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
-}
+};
+
+export default PhotosModal;
