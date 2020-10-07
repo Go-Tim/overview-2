@@ -17,13 +17,13 @@ This repository consists of what will be rendered as the second portion of the o
 
 ## Setup
 
-Open up the terminal and navigate to the database directory from within the root directory:
+Open up the terminal and from within the root directory, install the dependencies by running the command:
 
 ```sh
-cd database
+npm install
 ```
 
-Make sure that your MySQL server is running and seed the schema file with the command:
+Then navigate to the database directory. Make sure that your MySQL server is running and seed the schema file with the command:
 
 ```sh
 mysql -u root -p < schema.sql
@@ -40,17 +40,12 @@ npm run seed5
 npm run seed6
 ```
 
-Navigate back to the root directory:
-
-```sh
-cd ..
-```
-
-Run these scripts to start the server and webpack:
+Navigate back to the root directory and run these scripts to start the server and serve the static files:
 
 ```sh
 npm start
 npm run build
 ```
 
-Open up your browser and navigate to http://localhost:3002/:id
+Open up your browser and navigate to http://localhost:3003/:id
+(In this case :id refers to any number from 1 - 100)
