@@ -8,7 +8,6 @@ export default class Photos extends React.Component {
     super(props);
     this.state = {
       photos: [],
-      selectedPhoto: [],
       show: false,
       index: '',
     };
@@ -29,10 +28,9 @@ export default class Photos extends React.Component {
       .catch((err) => console.error(err));
   }
 
-  showModal(photo, index) {
+  showModal(index) {
     this.setState({
       show: true,
-      selectedPhoto: photo,
       index: index,
     });
   }
@@ -47,8 +45,8 @@ export default class Photos extends React.Component {
     const photosArr = this.state.photos.map((photo, index) => {
       if (index === 8) {
         return (
-            <div className="photogrid" key={index}>
-              <div className="ninethPhoto" onClick={() => this.showModal(photo, index)}>
+            <div className="photogrid" key={index} onClick={() => this.showModal(index)}>
+              <div className="ninethPhoto">
                 <big className="camera-icon"><FaCamera /></big>
                 <span className="camera-icon-desc">See all {this.state.photos.length} photos</span>
               </div>
@@ -57,7 +55,7 @@ export default class Photos extends React.Component {
         );
       }
       return (
-        <div className="photogrid" key={index} onClick={() => this.showModal(photo, index)}>
+        <div className="photogrid" key={index} onClick={() => this.showModal(index)}>
           <img className="photogrid-photo" src={photo.photo} alt="campsite" />
           <div className="photogrid-author">
             <img className="photogrid-avatar" src={photo.userImage} alt={photo.userName} />
@@ -72,11 +70,10 @@ export default class Photos extends React.Component {
         <PhotosModal
           show={this.state.show}
           handleClose={this.hideModal}
-          selectedPhoto={this.state.selectedPhoto}
           photos={this.state.photos}
           campsiteName={this.props.campsiteName}
           campsiteArea={this.props.campsiteArea}
-          index={this.state.index}
+          propIndex={this.state.index}
         />
         <h3 className="header">The vibe at {this.props.campsiteName}</h3>
         <div className="grid-container">

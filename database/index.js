@@ -1,8 +1,9 @@
+const PASSWORD = require('./config.js');
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
   user: 'root',
-  password: 'hjkl1240',
+  password: PASSWORD,
   database: 'timcamp',
 });
 
