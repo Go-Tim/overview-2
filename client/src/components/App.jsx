@@ -10,7 +10,7 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      id: window.location.pathname,
+      id: Math.floor(Math.random() * 100 + 1),
       campsiteName: '',
       campsiteArea: '',
       campsiteState: '',
@@ -27,7 +27,7 @@ export default class App extends React.Component {
   }
 
   getSite(id) {
-    Axios.get(`/api/sites${id}`)
+    Axios.get(`http://localhost:3003/api/sites/${id}`)
       .then((results) => {
         this.setState({
           campsiteName: results.data[0].siteName,

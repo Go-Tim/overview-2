@@ -11,11 +11,11 @@ export default class Activities extends React.Component {
   }
 
   componentDidMount() {
-    this.getActivities(window.location.pathname);
+    this.getActivities(this.props.path);
   }
 
   getActivities(id) {
-    Axios.get(`/api/activities${id}`)
+    Axios.get(`http://localhost:3003/api/activities/${id}`)
       .then((results) => this.setState({
         activities: results.data,
       }))

@@ -29,7 +29,9 @@ Then navigate to the database directory. Make sure that your MySQL server is run
 mysql -u root -p < schema.sql
 ```
 
-Next, run the seeding function scripts to import data into your schema:
+Rename the configExample.js file to config.js and input the password for you MySQL server if you have one.
+
+Go back to the root directory and run the seeding function scripts to import data into your schema:
 
 ```sh
 npm run seed
@@ -40,12 +42,13 @@ npm run seed5
 npm run seed6
 ```
 
-Navigate back to the root directory and run these scripts to start the server and serve the static files:
+Run these scripts to start the server and serve the static files:
 
 ```sh
 npm start
 npm run build
 ```
 
-Open up your browser and navigate to http://localhost:3003/:id
-(In this case :id refers to any number from 1 - 100)
+Open up your browser and navigate to http://localhost:3003/
+
+Every refresh/reload will render a random campsite!

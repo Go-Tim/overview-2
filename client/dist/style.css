@@ -22,7 +22,7 @@
   display: block;
   position: relative;
   float: right;
-  height: 2401px;
+  height: 1880px;
   margin: auto;
 }
 
@@ -301,7 +301,7 @@
 }
 
 .backdrop {
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .servicesTop {
@@ -353,7 +353,7 @@
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.9);
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .modal-container {
@@ -363,7 +363,7 @@
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 10000;
   max-width: 380px;
   height: auto;
   overflow: hidden;
@@ -433,12 +433,12 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .carousel {
   min-width: 100%;
-  z-index: 1000;
+  z-index: 10000;
   height: 100%;
   box-sizing: border-box;
   margin: 0;
@@ -453,7 +453,7 @@
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  z-index: 1000;
+  z-index: 10000;
   color: lightgrey;
   font-size: 50px;
   transition: all 0.3s ease 0s;
@@ -469,7 +469,7 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  z-index: 1000;
+  z-index: 10000;
   color: lightgrey;
   font-size: 50px;
   transition: all 0.3s ease 0s;
@@ -483,7 +483,7 @@
 .photos-modal-container {
   width: 100%;
   height: 100vh;
-  z-index: 1000;
+  z-index: 10000;
   margin: 0;
   padding: 0;
   position: fixed;
@@ -497,7 +497,7 @@
   position: fixed;
   top: 2%;
   left: 1%;
-  z-index: 1000;
+  z-index: 10000;
   color: lightgrey;
   display: flex;
   font-size: 11px;
@@ -509,7 +509,7 @@
   position: fixed;
   top: 0%;
   right: -0.5%;
-  z-index: 1000;
+  z-index: 10000;
   display: flex;
   font-size: 14px;
   color: #FFF;
@@ -711,7 +711,7 @@
   font-size: 30px;
   transition: color 0.5s ease 0s;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .ninethPhoto {
