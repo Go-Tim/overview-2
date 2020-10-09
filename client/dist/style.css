@@ -696,7 +696,7 @@
   font-size: 12px;
   position: fixed;
   color: #ffffff;
-  top: 615%;
+  top: 800%;
 }
 
 .overview-close {
@@ -745,5 +745,5 @@
 
 .photo-wrapper {
   position: fixed;
-  top: 100%;
+  top: 250%;
 }

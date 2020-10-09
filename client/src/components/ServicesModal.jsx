@@ -9,7 +9,7 @@ const modalVariant = {
 };
 const containerVariant = {
   initial: { top: "-50%" },
-  isOpen: { top: "30%" },
+  isOpen: { top: "20%" },
   exit: { top: "-50%" },
   transition: { ease: "easeIn" },
 };
