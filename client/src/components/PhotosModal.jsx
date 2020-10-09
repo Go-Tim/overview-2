@@ -179,7 +179,7 @@ const PhotosModal = ({ show, handleClose, photos, campsiteArea, campsiteName, pr
             <div className="report" ><FaRegFlag /> Report</div>
           </div>
           <div className="photos-modal-top-right" onClick={() => { handleClose(); reset();}}>
-            <RiCloseLine className="close" />
+            <RiCloseLine className="overview-close" />
           </div>
           <RiArrowLeftSLine className="goLeft" onClick={goLeft} />
           <RiArrowRightSLine className="goRight" onClick={goRight} />

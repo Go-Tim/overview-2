@@ -29,7 +29,7 @@ Then navigate to the database directory. Make sure that your MySQL server is run
 mysql -u root -p < schema.sql
 ```
 
-Rename the configExample.js file to config.js and input the password for you MySQL server if you have one.
+Rename the configExample.js file to config.js and input the password for your MySQL server if you have one.
 
 Go back to the root directory and run the seeding function scripts to import data into your schema:
 
@@ -45,8 +45,8 @@ npm run seed6
 Run these scripts to start the server and serve the static files:
 
 ```sh
-npm start
 npm run build
+npm start
 ```
 
 Open up your browser and navigate to http://localhost:3003/
