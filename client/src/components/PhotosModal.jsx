@@ -65,7 +65,7 @@ const PhotosModal = ({ show, handleClose, photos, campsiteArea, campsiteName, pr
   };
 
   const goRight = () => {
-    if (slideNum === 29) {
+    if (slideNum === photos.length) {
       setSlideNum(1);
     } else if (used) {
       setSlideNum(slideNum + 1);
@@ -73,7 +73,7 @@ const PhotosModal = ({ show, handleClose, photos, campsiteArea, campsiteName, pr
       setSlideNum(slideNum + propIndex + 1);
     }
 
-    if (slideNum === 29) {
+    if (slideNum === photos.length) {
       setX(propIndex * 100);
     } else if (!used && x === 0) {
       setX(x - 100);
