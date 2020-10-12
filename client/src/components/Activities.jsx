@@ -15,7 +15,7 @@ export default class Activities extends React.Component {
   }
 
   getActivities(id) {
-    Axios.get(`http://localhost:3003/api/activities/${id}`)
+    Axios.get(`/api/activities/${id}`)
       .then((results) => this.setState({
         activities: results.data,
       }))

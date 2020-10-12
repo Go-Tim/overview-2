@@ -15,7 +15,7 @@ export default class Attractions extends React.Component {
   }
 
   getAttractions(id) {
-    Axios.get(`http://localhost:3003/api/attractions/${id}`)
+    Axios.get(`/api/attractions/${id}`)
       .then((results) => this.setState({
         attractions: results.data,
       }))

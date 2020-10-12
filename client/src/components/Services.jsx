@@ -21,7 +21,7 @@ export default class Services extends React.Component {
   }
 
   getServices(id) {
-    Axios.get(`http://localhost:3003/api/services/${id}`)
+    Axios.get(`/api/services/${id}`)
       .then((results) => this.setState({
         services: results.data,
         present: results.data[0].name,

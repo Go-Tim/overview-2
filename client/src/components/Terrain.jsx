@@ -15,7 +15,7 @@ export default class Terrain extends React.Component {
   }
 
   getTerrain(id) {
-    Axios.get(`http://localhost:3003/api/terrain/${id}`)
+    Axios.get(`/api/terrain/${id}`)
       .then((results) => this.setState({
         terrain: results.data,
       }))

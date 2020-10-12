@@ -21,7 +21,7 @@ export default class Photos extends React.Component {
   }
 
   getPhotos(id) {
-    Axios.get(`http://localhost:3003/api/photos/${id}`)
+    Axios.get(`/api/photos/${id}`)
       .then((results) => this.setState({
         photos: results.data,
       }))
