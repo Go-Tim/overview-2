@@ -17,7 +17,32 @@ The goal for this project was for our team of engineers to replicate a website c
 Youtube link for the full demo: https://youtu.be/IN7jjsxXM3E
 Timestamp link for my module (from 1:01 to 1:48): https://youtu.be/IN7jjsxXM3E?t=61
 
-Screenshots to compare my product to the actual website:
+Screenshots to compare **my product** to the **actual website**:
+
+<p float="left">
+  <img src="./screenshots/myapp1.png" width="150">
+  <img src="./screenshots/hipcamp1.png" width="150">
+</p>
+<p float="left">
+  <img src="./screenshots/myapp2.png" width="150">
+  <img src="./screenshots/hipcamp2.png" width="150">
+</p>
+<p float="left">
+  <img src="./screenshots/myapp3.png" width="150">
+  <img src="./screenshots/hipcamp3.png" width="150">
+</p>
+<p float="left">
+  <img src="./screenshots/myapp4.png" width="150">
+  <img src="./screenshots/hipcamp4.png" width="150">
+</p>
+<p float="left">
+  <img src="./screenshots/myapp5.png" width="150">
+  <img src="./screenshots/hipcamp5.png" width="150">
+</p>
+<p float="left">
+  <img src="./screenshots/myapp6.png" width="150">
+  <img src="./screenshots/hipcamp6.png" width="150">
+</p>
 
 Link to a campsite page on HipCamp: https://www.hipcamp.com/texas/ardor-wood-farm/glamping-glen
 
@@ -29,15 +54,13 @@ Open up the terminal and from within the root directory, install the dependencie
 npm install
 ```
 
-Then navigate to the database directory. Make sure that your MySQL server is running and seed the schema file with the command:
+Rename the configExample.js to config.js and input the password for your MySQL server if you have one. Then navigate to the database directory. Make sure that your MySQL server is running and seed the schema file with the command:
 
 ```sh
-mysql -u root -p < schema.sql
+npm
 ```
 
-Rename the configExample.js file to config.js and input the password for your MySQL server if you have one.
-
-Go back to the root directory and run the seeding function scripts to import data into your schema:
+Go back to the root directory and run the following seeding function scripts to import data into your database:
 
 ```sh
 npm run seed
@@ -61,7 +84,8 @@ Every refresh/reload will render a random campsite!
 
 ## Technologies
 
-|-----------------|
+| Technologies Used |
+|-------------------|
 | React |
 | CSS3 |
 | Axios |
