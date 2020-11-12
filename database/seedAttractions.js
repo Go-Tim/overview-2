@@ -24,133 +24,25 @@ const createAttractions = () => {
   for (let i = 1; i <= 100; i++) {
     const randomNum = Math.floor(Math.random() * 100);
     if (randomNum < 20) {
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
+      for (let j = 0; j < 10; j++) {
+        attractionsArr.push(createAttraction(i));
+      }
     } else if (randomNum >= 20 && randomNum < 40) {
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
+      for (let j = 0; j < 20; j++) {
+        attractionsArr.push(createAttraction(i));
+      }
     } else if (randomNum >= 40 && randomNum < 60) {
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
+      for (let j = 0; j < 30; j++) {
+        attractionsArr.push(createAttraction(i));
+      }
     } else if (randomNum >= 60 && randomNum < 80) {
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
+      for (let j = 0; j < 40; j++) {
+        attractionsArr.push(createAttraction(i));
+      }
     } else {
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
-      attractionsArr.push(createAttraction(i));
+      for (let j = 0; j < 50; j++) {
+        attractionsArr.push(createAttraction(i));
+      }
     }
   }
   return attractionsArr;
