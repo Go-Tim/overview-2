@@ -4,9 +4,9 @@
 
 ## Table of Contents
 
-1. [Demo](#Demo)
-2. [Setup](#Setup)
-3. [Purpose](#Purpose)
+1. [Purpose](#Purpose)
+2. [Demo](#Demo)
+3. [Setup](#Setup)
 4. [Technologies Used](#Technologies)
 5. [Related Projects](#Related)
 
