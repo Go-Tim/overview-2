@@ -20,8 +20,8 @@ Timestamp link for my module (from 1:01 to 1:48): https://youtu.be/IN7jjsxXM3E?t
 Screenshots to compare **my product** to the **actual website**:
 
 <p float="left">
-  <img src="./screenshots/myapp1.png" width="150">
-  <img src="./screenshots/hipcamp1.png" width="150">
+  <img src="./screenshots/myapp1.png" width="50%">
+  <img src="./screenshots/hipcamp1.png" width="50%">
 </p>
 <p float="left">
   <img src="./screenshots/myapp2.png" width="150">
