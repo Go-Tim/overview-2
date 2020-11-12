@@ -1,4 +1,6 @@
-# TimCamp Overview-2
+<div align="center">
+  <img alt="Logo" src="./screenshots/TimCamp_Logo.jpeg" width="400" />
+</div>
 
 ## Table of Contents
 
