@@ -20,16 +20,16 @@ Timestamp link for my module (from 1:01 to 1:48): https://youtu.be/IN7jjsxXM3E?t
 Screenshots to compare **my product** to the **actual website**:
 
 <p float="left">
-  <img src="./screenshots/myapp1.png" width=50%>
-  <img src="./screenshots/hipcamp1.png" width=50%>
+  <img src="./screenshots/myapp1.png" width=40%>
+  <img src="./screenshots/hipcamp1.png" width=40%>
 </p>
 <p float="left">
   <img src="./screenshots/myapp2.png" width="300">
   <img src="./screenshots/hipcamp2.png" width="300">
 </p>
 <p float="left">
-  <img src="./screenshots/myapp3.png" width="150">
-  <img src="./screenshots/hipcamp3.png" width="150">
+  <img src="./screenshots/myapp3.png" width="400">
+  <img src="./screenshots/hipcamp3.png" width="400">
 </p>
 <p float="left">
   <img src="./screenshots/myapp4.png" width="150">
@@ -43,6 +43,10 @@ Screenshots to compare **my product** to the **actual website**:
   <img src="./screenshots/myapp6.png" width="150">
   <img src="./screenshots/hipcamp6.png" width="150">
 </p>
+
+| My App | HipCamp |
+|:------:|:-------:|
+|![demo](./screenshots/hipcamp6.png) | ![hello](./screenshots/hipcamp6.png)
 
 Link to a campsite page on HipCamp: https://www.hipcamp.com/texas/ardor-wood-farm/glamping-glen
 
