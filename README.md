@@ -12,12 +12,12 @@
 
 ## Purpose
 
-The goal of this project for our team of engineers was to replicate a website called **HipCamp** and build a "campsite detail page." Individually, we worked on separate widgets to create a similar user interface/experience to the actual website. I was in charge of implementing the second portion of the overview section that included, but were not limited to, a modal, photogrid, and a pop-up carousel. One of most exciting about the module I was assigned was that it heavily relied on the use of CSS flexbox and grid layouts. To learn more about the finished product, explore the links provided in the section below.
+The goal of this project for our team of engineers was to replicate a website called **HipCamp** and build a "campsite detail page." Individually, we worked on separate widgets to create a similar user interface/experience to the actual website. I was in charge of implementing the second portion of the overview section that included, but were not limited to, a modal, photogrid, and a pop-up carousel. One of most exciting about my module was that it heavily relied on the use of CSS flexbox and grid layouts. To learn more about the finished product, explore the links and screenshots provided in the section below.
 
 ## Demo
 
-<p float="left">Youtube link for the full demo: https://youtu.be/IN7jjsxXM3E</p>
-<p float="left">Timestamp for my module (from 1:01 to 1:48): https://youtu.be/IN7jjsxXM3E?t=61</p>
+<p float="left"><b>Full demo:</b> https://youtu.be/IN7jjsxXM3E</p>
+<p float="left"><b>Timestamp for my module (from 1:01 to 1:48):</b> https://youtu.be/IN7jjsxXM3E?t=61</p>
 
 Screenshots to compare **my product** to the **actual website**:
 
