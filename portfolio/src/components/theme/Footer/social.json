@@ -1,0 +1,14 @@
+[
+  {
+    "id": 0,
+    "name": "Github",
+    "link": "https://github.com/JasonHong1998",
+    "icon": "/icons/github.svg"
+  },
+  {
+    "id": 1,
+    "name": "LinkedIn",
+    "link": "https://www.linkedin.com/in/jasonhong1998/",
+    "icon": "/icons/linkedin.svg"
+  }
+]
